@@ -5,7 +5,7 @@ const port = 3000;
 
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 console.log("Connected to PlanetScale!");
-connection.end();
+// connection.end();
 /**
  * prod url: https://mvvp-api.cyclic.app/
  * local url: http://localhost:3000/
@@ -23,6 +23,6 @@ app.get("/test-connectdb", (req, res) => {
     res.send("error connect!");
   }
 });
-
+connection.end();
 console.log("running on port:" + port);
 app.listen(process.env.PORT || port);
